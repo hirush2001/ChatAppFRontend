@@ -24,7 +24,7 @@ function App() {
         pauseOnHover
       />
           <Routes>
-          <Route path="/" element={<h1>Home Page</h1>} />
+          <Route path="/" element={<SignupPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/messagebox" element={<MessageBox />} />
