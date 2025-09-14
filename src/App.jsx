@@ -6,6 +6,9 @@ import ChatBox from './pages/chatbox'
 import UserApp from './pages/username'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import InviteChat from './pages/invite'
+import GenCode from './pages/generatechatcode'
+import ChatRoomPage from './pages/hub'
 
 
 function App() {
@@ -25,11 +28,14 @@ function App() {
       />
           <Routes>
           <Route path="/" element={<SignupPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/messagebox" element={<MessageBox />} />
-        <Route path="/username" element={<UserApp />} />
-        <Route path="/chatbox" element={<ChatBox/>} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/messagebox" element={<MessageBox />} />
+          <Route path="/username" element={<UserApp />} />
+          <Route path="/chatbox" element={<ChatBox />} />
+          <Route path="/verifycode" element={<InviteChat />} />
+          <Route path="/chatcode" element={<GenCode />} />
+          <Route path="/hub" element={<ChatRoomPage/>} />
         </Routes>
         </div>
     </BrowserRouter>

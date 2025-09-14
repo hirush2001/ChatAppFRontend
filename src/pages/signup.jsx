@@ -33,7 +33,7 @@ export default function SignupPage() {
         
     }
     return (
-<div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+<div className="min-h-screen flex items-center justify-center bg-yellow-400">
   <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-sm">
     <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
       Signup ✨
@@ -48,7 +48,7 @@ export default function SignupPage() {
           placeholder="Mobile Number"
           onChange={(e) => setMobilenumber(e.target.value)}
           value={mobilenumber}
-          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+         className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all"
         />
       </div>
 
@@ -60,8 +60,7 @@ export default function SignupPage() {
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
           value={firsName}
-          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-        />
+          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all"        />
       </div>
 
       {/* Last Name */}
@@ -72,8 +71,7 @@ export default function SignupPage() {
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
           value={lastName}
-          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-        />
+          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all"        />
       </div>
 
       {/* Password */}
@@ -84,15 +82,14 @@ export default function SignupPage() {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
-          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-        />
+          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all"        />
       </div>
 
       {/* Signup Button */}
       <button
         type="submit"
         onClick={handleSignup}
-        className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-semibold hover:from-pink-500 hover:to-purple-500 shadow-lg transform hover:scale-105 transition-transform"
+        className="w-full bg-black text-white py-3 rounded-xl font-semibold hover:from-pink-500 hover:to-purple-500 shadow-lg transform hover:scale-105 transition-transform"
       >
         Register
       </button>

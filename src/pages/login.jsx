@@ -82,7 +82,7 @@ export default function LoginPage() {
       console.log("Login Successful", response.data);
       toast.success("Login Successful");
       localStorage.setItem("token", response.data.token);
-      navigate("/username");
+      navigate("/hub");
     } catch (e) {
       if (e.response) {
         console.log("Cannot login:", e.response.data);
@@ -95,61 +95,62 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-    <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-sm">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-        Login 🔑
-      </h2>
-  
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleLogin();
-        }}
-        className="space-y-5"
+    <div className="min-h-screen flex items-center justify-center bg-yellow-400">
+  <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-sm">
+    <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
+      Login 🔑
+    </h2>
+
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleLogin();
+      }}
+      className="space-y-5"
+    >
+      {/* Mobile Number */}
+      <div>
+        <input
+          type="text"
+          name="mobilenumber"
+          placeholder="Mobile Number"
+          onChange={(e) => setMobilenumber(e.target.value)}
+          value={mobilenumber}
+          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all"
+        />
+      </div>
+
+      {/* Password */}
+      <div>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all"
+        />
+      </div>
+
+      {/* Login Button */}
+      <button
+        type="submit"
+        className="w-full bg-black text-white py-3 rounded-xl font-semibold hover:from-pink-500 hover:to-purple-500 shadow-lg transform hover:scale-105 transition-transform"
       >
-        {/* Mobile Number */}
-        <div>
-          <input
-            type="text"
-            name="mobilenumber"
-            placeholder="Mobile Number"
-            onChange={(e) => setMobilenumber(e.target.value)}
-            value={mobilenumber}
-            className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-          />
-        </div>
-  
-        {/* Password */}
-        <div>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-          />
-        </div>
-  
-        {/* Login Button */}
-        <button
-          type="submit"
-          className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-semibold hover:from-pink-500 hover:to-purple-500 shadow-lg transform hover:scale-105 transition-transform"
-        >
-          Login
-        </button>
-      </form>
-  
-      {/* Extra Links */}
-      <p className="text-sm text-center text-gray-600 mt-6">
-        Don’t have an account?{" "}
-        <a href="/signup" className="text-purple-600 font-semibold hover:underline">
-          Sign up
-        </a>
-      </p>
-    </div>
+        Login
+      </button>
+    </form>
+
+    {/* Extra Links */}
+    <p className="text-sm text-center text-gray-600 mt-6">
+      Don’t have an account?{" "}
+      <a href="/signup" className="text-purple-600 font-semibold hover:underline">
+        Sign up
+      </a>
+    </p>
   </div>
+</div>
+
   
   );
 }
