@@ -21,11 +21,11 @@ export default function GenCode() {
                 process.env.REACT_APP_BACKEND_URL + "/otp/otp",
                 {
                     email: email
-                } // ✅ send email to backend
+                } 
             );
 
             console.log("Your Code is:", response.data.code);
-            setGeneratedCode(response.data.code); // Optional: Show code on screen
+            setGeneratedCode(response.data.code); 
             toast.success("OTP sent to your email!");
 
             // Optional: navigate after a short delay
