@@ -3,7 +3,7 @@ import { useState,useEffect } from "react";
 import io from "socket.io-client";
 import { decrypt } from "../utils/cryptoHelper";
 
-const socket = io("http://localhost:5000");
+const socket = io("worthy-joy-production.up.railway.app");
 
 export default function ChatBox({ myName }) {
   const [messages, setMessages] = useState([]);
