@@ -1,3 +1,5 @@
+//Not use
+
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -10,29 +12,36 @@ export default function InviteChat() {
     const navigate = useNavigate();
 
     async function handleinvite() {
-        try {
-            const response = await axios.post(
-                process.env.REACT_APP_BACKEND_URL + "/verify/verify",
-              { 
-                    email : email,
-                    otp: otp
-                }
-
-            
-            );
-            console.log("Sunccefully Enter ChatRomm", response.data);
-            toast.success("You are Entered ChatRoom");
-            navigate("/username",{ state : {otp}});
-        } catch (e) {
-            if (e.response) {
-                console.log("Cannot Enter ChatRoom:", e.response.data);
-                toast.error("Cannot Enter ChatRoom");
-              } else {
-                console.log("Entering error:", e);
-                toast.error("Entering error");
-              }
-        }
-    }
+      try {
+          const response = await axios.post(
+              process.env.REACT_APP_BACKEND_URL + "/verify/verify",
+              { email, otp }
+          );
+  
+          console.log("Backend response:", response.data);
+  
+          // Only navigate if OTP is valid
+          if (response.data.success) { 
+              toast.success("You have entered the ChatRoom");
+              navigate("/username", { state: { otp } });
+          } else {
+              toast.error(response.data.message || "Incorrect OTP");
+          }
+  
+      } catch (e) {
+          if (e.response) {
+              console.log("Cannot Enter ChatRoom:", e.response.data);
+              toast.error(e.response.data.message || "Cannot Enter ChatRoom");
+          } else {
+              console.log("Entering error:", e);
+              toast.error("Entering error");
+          }
+      }
+  }
+  
+  
+  
+  
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
           <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-sm">

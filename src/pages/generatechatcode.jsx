@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -20,16 +21,18 @@ export default function GenCode() {
             const response = await axios.post(
                 process.env.REACT_APP_BACKEND_URL + "/otp/otp",
                 {
-                    email: email
+                    email: email,
+                    
                 } 
             );
 
-            console.log("Your Code is:", response.data.code);
-            setGeneratedCode(response.data.code); 
+            console.log("Your Code is:", response.data.otp);
+            setGeneratedCode(response.data.otp); 
             toast.success("OTP sent to your email!");
-
-            // Optional: navigate after a short delay
-            setTimeout(() => navigate("/username"), 2000);
+            
+                // Optional: navigate after a short delay
+                setTimeout(() => navigate("/username"), 2000);
+            
         } catch (e) {
             if (e.response) {
                 console.log("Cannot Generate OTP:", e.response.data);
@@ -51,6 +54,7 @@ export default function GenCode() {
                 </h1>
 
                 {/* Email input */}
+                
                 <input
                     type="email"
                     value={email}
